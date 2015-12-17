@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = "1.0.0"
   s.summary          = "SegmentControl to switch viewController's view."
   s.description      = <<-DESC
-                       SegmentControl to switch viewController's view.
+                       a container viewController with SegmentControl to switch viewController's view.
                        DESC
   s.homepage         = "https://github.com/litt1e-p/LPSegmentController"
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
