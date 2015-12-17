@@ -49,8 +49,8 @@
         [self addViewController:arrVc[i] title:arrTitle[i]];
     }
     _segmentControl.frame = CGRectMake(0, 0, 200, 25);
-    [_segmentControl setSelectedSegmentIndex:0];
-    self.selectedViewCtlWithIndex = 0;
+    [_segmentControl setSelectedSegmentIndex:self.segmentSelectedIndex];
+    self.selectedViewCtlWithIndex = self.segmentSelectedIndex;
 }
 
 - (void)addViewController:(UIViewController *)viewController title:(NSString *)title
@@ -63,23 +63,31 @@
 - (void)setSelectedViewCtlWithIndex:(NSInteger)index
 {
     if (!_selectedViewController) {
-        _selectedViewController = self.childViewControllers[index];
-        [_selectedViewController view].frame = self.view.frame;
+        _selectedViewController            = self.childViewControllers[index];
+        _selectedViewController.view.frame = self.view.frame;
+        [_selectedViewController willMoveToParentViewController:nil];
         [self.view addSubview:[_selectedViewController view]];
         [_selectedViewController didMoveToParentViewController:self];
     } else {
-        if ([[UIDevice currentDevice].systemVersion floatValue] < 7.0f) {
-            [self.childViewControllers[index] view].frame = self.view.frame;
-        }
-        [self transitionFromViewController:_selectedViewController toViewController:self.childViewControllers[index] duration:0.0f options:UIViewAnimationOptionTransitionNone animations:nil completion:^(BOOL finished) {
-             _selectedViewController = self.childViewControllers[index];
-             _selectedViewCtlWithIndex = index;
-         }];
+        __weak typeof(self) weakSelf = self;
+        UIViewController *selectedVc = self.childViewControllers[index];
+        selectedVc.view.frame        = (CGRect){{0, 0}, _selectedViewController.view.bounds.size};
+        [self transitionFromViewController:_selectedViewController
+                          toViewController:self.childViewControllers[index]
+                                  duration:0.0f
+                                   options:UIViewAnimationOptionTransitionNone
+                                animations:nil
+                                completion:^(BOOL finished) {
+                                    [_selectedViewController.view removeFromSuperview];
+                                    _selectedViewController   = weakSelf.childViewControllers[index];
+                                    _selectedViewCtlWithIndex = index;
+                                    [_selectedViewController didMoveToParentViewController:weakSelf];
+        }];
     }
 }
 
 #pragma mark - action
-- (void)didClickSegmentItem:(id)sender
+- (void)didClickSegmentItem:(UISegmentedControl *)sender
 {
     self.selectedViewCtlWithIndex = _segmentControl.selectedSegmentIndex;
 }
@@ -96,6 +104,7 @@
 - (void)setSegmentTinColor:(UIColor *)segmentTinColor
 {
     _segmentTinColor = segmentTinColor;
+    _segmentControl.tintColor = segmentTinColor;
 }
 
 @end

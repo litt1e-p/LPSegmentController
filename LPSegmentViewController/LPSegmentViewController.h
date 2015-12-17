@@ -10,6 +10,7 @@
 @interface LPSegmentViewController : UIViewController
 
 @property (nonatomic, strong) UIColor *segmentTinColor;
+@property (nonatomic, assign) NSInteger segmentSelectedIndex;
 - (void)loadViewControllers :(NSArray *)arrVc andSegementTitles :(NSArray *)arrTitle;
 
 @end
