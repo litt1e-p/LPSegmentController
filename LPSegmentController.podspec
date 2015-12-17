@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name             = "LPSegmentViewController"
-  s.version          = "1.0.0"
+  s.name             = "LPSegmentController"
+  s.version          = "1.0.1"
   s.summary          = "SegmentControl to switch viewController's view."
   s.description      = <<-DESC
                        SegmentControl to switch viewController's view.
@@ -9,10 +9,10 @@ Pod::Spec.new do |s|
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = { :type => 'MIT' }
   s.author           = { "litt1e-p" => "litt1e.p4ul@gmail.com" }
-  s.source           = { :git => "https://github.com/litt1e-p/LPSegmentController.git", :tag => '1.0.0' }
+  s.source           = { :git => "https://github.com/litt1e-p/LPSegmentController.git", :tag => '1.0.1' }
   # s.social_media_url = 'https://twitter.com/NAME'
 
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '6.0'
   # s.ios.deployment_target = '5.0'
   # s.osx.deployment_target = '10.7'
   s.requires_arc = true
