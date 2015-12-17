@@ -5,11 +5,11 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                        SegmentControl to switch viewController's view.
                        DESC
-  s.homepage         = "https://github.com/litt1e-p/LPSegmentViewController"
+  s.homepage         = "https://github.com/litt1e-p/LPSegmentController"
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = { :type => 'MIT' }
   s.author           = { "litt1e-p" => "litt1e.p4ul@gmail.com" }
-  s.source           = { :git => "https://github.com/litt1e-p/LPSegmentViewController.git", :tag => '1.0.0' }
+  s.source           = { :git => "https://github.com/litt1e-p/LPSegmentController.git", :tag => '1.0.0' }
   # s.social_media_url = 'https://twitter.com/NAME'
 
   s.platform     = :ios, '5.0'
