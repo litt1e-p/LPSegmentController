@@ -7,4 +7,4 @@ SegmentControl to switch viewController's view
 
 ## Usage
 
-see the sample xcodeproj
+pod 'LPSegmentController'
