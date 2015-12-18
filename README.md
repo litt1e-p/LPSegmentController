@@ -1,7 +1,5 @@
 # LPSegmentController
 
----
-
 SegmentControl to switch viewController's view
 
 ##Screenshot
@@ -9,8 +7,6 @@ SegmentControl to switch viewController's view
 <img src="Screenshot/screenshot.gif" width=320>
 
 ## Usage
-
----
 
 using cocoaPods:  
 
@@ -20,6 +16,4 @@ using cocoaPods:
 
 ## Update
 
----
-
-> *  v1.0.0 ---- first commit version
+-  v1.0.0 ---- first commit version
